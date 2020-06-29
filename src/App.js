@@ -8,6 +8,7 @@ function App() {
   const [value, setValue] = useState("0");
   const [memory, setMemory] = useState(null);
   const [operator, setOperator] = useState(null);
+  const [theme, setTheme] = useState('apple')
 
   const handleButtonPress = content => () => {
     const num = parseFloat(value)
@@ -145,31 +146,39 @@ function App() {
     }
   }
 
+  const handleThemeChange = theme => () => {
+    if (theme === 'apple') {
+      setTheme('windows')
+    } else if (theme !== 'apple') {
+      setTheme('apple')
+    }
+  }
+
 
   return (
-    <div className="App">
-      <ThemeSelect></ThemeSelect>
+    <div className={`App ${theme !== 'apple' ? 'windows' : ''}`}>
+      <ThemeSelect theme={theme} onButtonClick={handleThemeChange}></ThemeSelect>
       <div className="Display">{value}</div>
-      <div className="Buttons">
-        <Button onButtonClick={handleButtonPress} content="AC" type="function"/>
-        <Button onButtonClick={handleButtonPress} content="+/-" type="function"/>
-        <Button onButtonClick={handleButtonPress} content="%" type="function"/>
-        <Button onButtonClick={handleButtonPress} content="÷" type="operator"/>
-        <Button onButtonClick={handleButtonPress} content="7"/>
-        <Button onButtonClick={handleButtonPress} content="8"/>
-        <Button onButtonClick={handleButtonPress} content="9"/>
-        <Button onButtonClick={handleButtonPress} content="×" type="operator"/>
-        <Button onButtonClick={handleButtonPress} content="4"/>
-        <Button onButtonClick={handleButtonPress} content="5"/>
-        <Button onButtonClick={handleButtonPress} content="6"/>
-        <Button onButtonClick={handleButtonPress} content="−" type="operator"/>
-        <Button onButtonClick={handleButtonPress} content="1"/>
-        <Button onButtonClick={handleButtonPress} content="2"/>
-        <Button onButtonClick={handleButtonPress} content="3"/>
-        <Button onButtonClick={handleButtonPress} content="+" type="operator"/>
-        <Button onButtonClick={handleButtonPress} content="0"/>
-        <Button onButtonClick={handleButtonPress} content="."/>
-        <Button onButtonClick={handleButtonPress} content="=" type="operator"/>
+      <div className={`Buttons ${theme !== 'apple' ? 'windows' : ''}`}>
+        <Button onButtonClick={handleButtonPress} content="AC" theme={theme} type="function"/>
+        <Button onButtonClick={handleButtonPress} content="+/-" theme={theme} type="function"/>
+        <Button onButtonClick={handleButtonPress} content="%" theme={theme} type="function"/>
+        <Button onButtonClick={handleButtonPress} content="÷" theme={theme} type="operator"/>
+        <Button onButtonClick={handleButtonPress} content="7" theme={theme}/>
+        <Button onButtonClick={handleButtonPress} content="8" theme={theme}/>
+        <Button onButtonClick={handleButtonPress} content="9" theme={theme}/>
+        <Button onButtonClick={handleButtonPress} content="×" theme={theme} type="operator"/>
+        <Button onButtonClick={handleButtonPress} content="4" theme={theme}/>
+        <Button onButtonClick={handleButtonPress} content="5" theme={theme}/>
+        <Button onButtonClick={handleButtonPress} content="6" theme={theme}/>
+        <Button onButtonClick={handleButtonPress} content="−" theme={theme} type="operator"/>
+        <Button onButtonClick={handleButtonPress} content="1" theme={theme}/>
+        <Button onButtonClick={handleButtonPress} content="2" theme={theme}/>
+        <Button onButtonClick={handleButtonPress} content="3" theme={theme}/>
+        <Button onButtonClick={handleButtonPress} content="+" theme={theme} type="operator"/>
+        <Button onButtonClick={handleButtonPress} content="0" theme={theme}/>
+        <Button onButtonClick={handleButtonPress} content="." theme={theme}/>
+        <Button onButtonClick={handleButtonPress} content="=" theme={theme} type="operator"/>
       </div>
     </div>
   );

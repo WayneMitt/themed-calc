@@ -1,10 +1,11 @@
 import React from 'react';
 import './ThemeSelect.css'
 
-function ThemeSelect() {
+function ThemeSelect({theme, onButtonClick}) {
   return (
     <div className="ThemeSelect">
-      <p>theme select</p>
+      <p>Select Theme:</p>
+      <input type="checkbox" id="switch" onClick={onButtonClick(theme)} /><label for="switch">Toggle</label>
     </div>
   );
 }
