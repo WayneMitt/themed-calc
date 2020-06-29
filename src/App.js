@@ -12,34 +12,34 @@ function App() {
 
   const handleButtonPress = content => () => {
     const num = parseFloat(value)
-    if (content == 'AC') {
+    if (content === 'AC') {
       setValue('0')
       setMemory(null)
       setOperator(null)
       return;
     }
-    if (content == '+/-') {
+    if (content === '+/-') {
       setValue((num * -1).toString())
       return;
     }
-    if (content == '%') {
+    if (content === '%') {
       setValue((num/100).toString())
       setMemory(null)
       setOperator(null)
       return;
     }
-    if (content == '+') { //Addition Operator
+    if (content === '+') { //Addition Operator
       if (operator !== null) {
-        if (operator == '+') {
+        if (operator === '+') {
           setMemory((memory + parseFloat(value)))
         } 
-        if (operator == '−') {
+        if (operator === '−') {
           setMemory((memory - parseFloat(value)))
         }
-        if (operator == '×') {
+        if (operator === '×') {
           setMemory((memory * parseFloat(value)))
         }
-        if (operator == '÷') {
+        if (operator === '÷') {
           setMemory((memory / parseFloat(value)))
         }
       } else {
@@ -49,18 +49,18 @@ function App() {
       setOperator('+')
       return;
     }
-    if (content == '−') { //Subtraction Operator
+    if (content === '−') { //Subtraction Operator
       if (operator !== null) {
-        if (operator == '+') {
+        if (operator === '+') {
           setMemory((memory + parseFloat(value)))
         } 
-        if (operator == '−') {
+        if (operator === '−') {
           setMemory((memory - parseFloat(value)))
         }
-        if (operator == '×') {
+        if (operator === '×') {
           setMemory((memory * parseFloat(value)))
         }
-        if (operator == '÷') {
+        if (operator === '÷') {
           setMemory((memory / parseFloat(value)))
         }
       } else {
@@ -70,18 +70,18 @@ function App() {
       setOperator('−')
       return;
     }
-    if (content == '×') { // Multiplication Operator
+    if (content === '×') { // Multiplication Operator
       if (operator !== null) {
-        if (operator == '+') {
+        if (operator === '+') {
           setMemory((memory + parseFloat(value)))
         } 
-        if (operator == '−') {
+        if (operator === '−') {
           setMemory((memory - parseFloat(value)))
         }
-        if (operator == '×') {
+        if (operator === '×') {
           setMemory((memory * parseFloat(value)))
         }
-        if (operator == '÷') {
+        if (operator === '÷') {
           setMemory((memory / parseFloat(value)))
         }
       } else {
@@ -91,18 +91,18 @@ function App() {
       setOperator('×')
       return;
     }
-    if (content == '÷') { // Division Operator
+    if (content === '÷') { // Division Operator
       if (operator !== null) {
-        if (operator == '+') {
+        if (operator === '+') {
           setMemory((memory + parseFloat(value)))
         } 
-        if (operator == '−') {
+        if (operator === '−') {
           setMemory((memory - parseFloat(value)))
         }
-        if (operator == '×') {
+        if (operator === '×') {
           setMemory((memory * parseFloat(value)))
         }
-        if (operator == '÷') {
+        if (operator === '÷') {
           setMemory((memory / parseFloat(value)))
         }
       } else {
@@ -112,19 +112,19 @@ function App() {
       setOperator('÷')
       return;
     }
-    if (content == '=') { // Equals Operator
+    if (content === '=') { // Equals Operator
       if (!operator) return;
       
-      if (operator == '+') {
+      if (operator === '+') {
         setValue((memory + parseFloat(value)).toString())
       } 
-      if (operator == '−') {
+      if (operator === '−') {
         setValue((memory - parseFloat(value)).toString())
       }
-      if (operator == '×') {
+      if (operator === '×') {
         setValue((memory * parseFloat(value)).toString())
       }
-      if (operator == '÷') {
+      if (operator === '÷') {
         setValue((memory / parseFloat(value)).toString())
       }
       
@@ -132,14 +132,14 @@ function App() {
       setOperator(null)
       return;
     }
-    if (content == '.') {
+    if (content === '.') {
       if (value.includes('.')) return;
 
       setValue(value + '.')
       return;
     }
 
-    if (value[value.length - 1] == '.') {
+    if (value[value.length - 1] === '.') {
       setValue(value + content)
     } else {
       setValue((parseFloat(num + content)).toString())
