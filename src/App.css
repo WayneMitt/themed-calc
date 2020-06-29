@@ -1,5 +1,5 @@
 .App {
-  justify-content: center;
+  margin: 0 auto;
   width: 500px;
   height: 900px;
   background: black;
@@ -26,4 +26,13 @@
   margin-right: 30px;
   text-align: right;
   padding: 0px;
+}
+
+.App.windows {
+  background-color: rgb(36, 36, 36);
+  border-radius: 0;
+}
+
+.Buttons.windows {
+  grid-gap: 2px;
 }

@@ -26,3 +26,23 @@
 .operator {
     background: #f1a33c
 }
+
+.Button.windows {
+    border-radius: 0%;
+    background: black;
+    opacity: 90%;
+    width: 100%;
+}
+
+.Button.windows.function {
+    color: white;
+}
+
+.Button.windows.equals {
+    background: #0078d7;
+    opacity: 80%;
+}
+
+.Button.windows.zero {
+    width:189px;
+}
